@@ -15,8 +15,8 @@ export class AppComponent {
   maxStepNumber: number = 5;
   
   ngOnInit() {
-    this.themes = ['retro', 'cyberpunk',  'aqua', 'forest'];
-    document.body.setAttribute('data-theme', 'retro');
+    this.themes = ['synthwave', 'retro', 'cyberpunk',  'aqua'];
+    document.body.setAttribute('data-theme', this.themes[0]); // set default theme
   }
   
   toggleThemes() {
