@@ -31,6 +31,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/portfolio/",
               "budgets": [
                 {
                   "type": "initial",
@@ -46,6 +47,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "baseHref": "/",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -91,8 +93,25 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
