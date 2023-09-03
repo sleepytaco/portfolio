@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'portfolio';
+  title: string = 'portfolio';
+  themes: string[] = [];
+  currThemeIndex: number = 0;
+  currStep: number = 0;
+  
+  ngOnInit() {
+    this.themes = ['retro', 'cyberpunk',  'aqua', 'forest'];
+    document.body.setAttribute('data-theme', 'retro');
+  }
+  
+  toggleThemes() {
+    this.currThemeIndex = (this.currThemeIndex + 1) % this.themes.length;
+    document.body.setAttribute('data-theme', this.themes[this.currThemeIndex]);
+  }
 }
