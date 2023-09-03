@@ -16,12 +16,20 @@ export class AppComponent {
   
   ngOnInit() {
     this.themes = ['synthwave', 'retro', 'cyberpunk',  'aqua'];
-    document.body.setAttribute('data-theme', this.themes[0]); // set default theme
+    
+    let themeIndex = Number(localStorage.getItem('themeIndex'));
+    if (!themeIndex) {
+      themeIndex = 0;
+    }
+    this.currThemeIndex = themeIndex;
+    document.body.setAttribute('data-theme', this.themes[themeIndex]); // set default theme
+
   }
   
   toggleThemes() {
     this.currThemeIndex = (this.currThemeIndex + 1) % this.themes.length;
     document.body.setAttribute('data-theme', this.themes[this.currThemeIndex]);
+    localStorage.setItem('themeIndex', `${this.currThemeIndex}`);
   }
 
   get getCurrentThemeText() {
