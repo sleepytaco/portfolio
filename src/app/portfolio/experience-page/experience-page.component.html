@@ -1,0 +1,21 @@
+<h1 class="text-5xl font-bold text-center pt-20">Experience</h1>
+<p class="px-40 pt-10">
+  Most of my past experiences have been teaching and developing software for non-profits. From these roles, I have picked up
+   great enthusiasm for working collaboratively with team members, communicating effectively, and remaining focused on delivering 
+   high-quality results.</p>
+
+<div class="grid grid-cols-2 px-10 py-10 gap-4 mb-16">
+  <div *ngFor="let exp of experiences" class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <span *ngIf="exp.ongoing" class="indicator-item indicator-center badge badge-success">Current</span> 
+      <h1 class="text-lg font-bold">{{ exp.title }}</h1>      
+      <h1 class="text-">{{ exp.company }}</h1>
+      <h1 class="text-sm italic">{{ exp.duration }}</h1>
+      <ul>
+        <li *ngFor="let bullet of exp.desc">
+          • {{bullet}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
