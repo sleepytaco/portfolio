@@ -5,9 +5,10 @@ module.exports = {
         themes: [
           "retro",
           "cyberpunk",
-          "forest",
-          "aqua",
-          "synthwave"
+          "wireframe",
+          "pastel",
+          "synthwave",
+          "garden"
         ],
       },
   };
