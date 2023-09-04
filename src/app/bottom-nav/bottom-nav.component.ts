@@ -19,12 +19,12 @@ export class BottomNavComponent implements OnInit {
    constructor(private _router: Router, private location: Location, public themesService: ThemesService) { }
 
    ngOnInit(): void {
-      this.links = ['/', '/education', '/experience', '/projects', '/contact', '/misc'];
+      this.links = ['', '/education', '/experience', '/projects', '/contact', '/misc'];
 
       // eg. if /misc is visited as the very first link, then move stepNumber to highlight misc button on bottom nav
       this.currStepNumber = this.links.indexOf(this.location.path());
 
-      this.maxStepNumber = this.links.length;
+      this.maxStepNumber = this.links.length - 1;
       this.themesService.initDefaultTheme();
    }
 
