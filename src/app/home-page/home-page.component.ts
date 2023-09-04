@@ -1,35 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
-
-  themes: string[] = [];
-  currThemeIndex: number = 0;
-
-  ngOnInit() {
-    this.themes = ['synthwave', 'retro', 'garden', 'cyberpunk',  'pastel', 'wireframe'];
-    
-    let themeIndex = Number(localStorage.getItem('themeIndex'));
-    if (!themeIndex) {
-      themeIndex = 0;
-    }
-    this.currThemeIndex = themeIndex;
-    document.body.setAttribute('data-theme', this.themes[themeIndex]); // set default theme
-
+export class HomePageComponent implements OnInit {
+  constructor(public themesService: ThemesService) {}
+  ngOnInit(): void {
+    this.themesService.initDefaultTheme();
   }
-
-  toggleThemes() {
-    this.currThemeIndex = (this.currThemeIndex + 1) % this.themes.length;
-    document.body.setAttribute('data-theme', this.themes[this.currThemeIndex]);
-    localStorage.setItem('themeIndex', `${this.currThemeIndex}`);
-  }
-
-  get getCurrentThemeText() {
-    return `Current Theme: ${this.themes[this.currThemeIndex]}`;
-  }
-
 }

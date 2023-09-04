@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemesService } from '../services/themes.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -7,17 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./bottom-nav.component.css']
 })
 export class BottomNavComponent implements OnInit {
-   // bottom navigation step number
+   // bottom navigation step number used to highlight relavent button
    currStepNumber: number = 0;
    maxStepNumber: number = 0;
+
+   // links for manual routing when left/right arrows are pressed
    links: string[] = [];
 
-   constructor(private _router: Router) { }
+   constructor(private _router: Router, private location: Location, public themesService: ThemesService) { }
 
    ngOnInit(): void {
-      this.links = ['/hello', '/education', '/experience', '/projects', '/contact', '/misc'];
-      this._router.navigateByUrl(this.links[this.currStepNumber]);
+      this.links = ['/', '/education', '/experience', '/projects', '/contact', '/misc'];
+
+      // eg. if /misc is visited as the very first link, then move stepNumber to highlight misc button on bottom nav
+      this.currStepNumber = this.links.indexOf(this.location.path());
+
       this.maxStepNumber = this.links.length;
+      this.themesService.initDefaultTheme();
    }
 
    @HostListener('window:keyup', ['$event'])
