@@ -8,7 +8,7 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
 import { EducationPageComponent } from './education-page/education-page.component';
 
 const routes: Routes = [
-  { path: 'hello', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
   { path: 'experience', component: ExperiencePageComponent },
   { path: 'projects', component: ProjectsPageComponent },
