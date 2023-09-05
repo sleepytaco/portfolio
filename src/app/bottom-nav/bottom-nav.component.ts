@@ -22,7 +22,8 @@ export class BottomNavComponent implements OnInit {
       this.links = [ '/education', '/experience', '', '/projects', '/contact', '/misc'];
 
       // eg. if /misc is visited as the very first link, then move stepNumber to highlight misc button on bottom nav
-      this.currStepNumber = this.links.indexOf(this.location.path());
+      let linkIndex = this.links.indexOf(this.location.path());
+      this.currStepNumber = (linkIndex == -1) ? 2 : linkIndex; // default to center tab if link not found
 
       this.maxStepNumber = this.links.length - 1;
       this.themesService.initDefaultTheme();
