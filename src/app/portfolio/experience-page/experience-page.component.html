@@ -5,7 +5,7 @@
    high-quality results.</p>
 
 <div class="grid grid-cols-2 px-10 py-10 gap-4 mb-16">
-  <div *ngFor="let exp of experiences" class="card bg-base-100 shadow-xl">
+  <div *ngFor="let exp of experiences" class="card glass bg-base-100 shadow-xl">
     <div class="card-body">
       <span *ngIf="exp.ongoing" class="indicator-item indicator-center badge badge-success">Current</span> 
       <h1 class="text-lg font-bold">{{ exp.title }}</h1>      
@@ -16,6 +16,10 @@
           • {{bullet}}
         </li>
       </ul>
+      <br>
+      <div class="flex flex-wrap gap-2">
+        <span *ngFor="let skill of exp.skills" class="badge badge-secondary badge-md">{{ skill }}</span>
+      </div> 
     </div>
   </div>
 </div>
