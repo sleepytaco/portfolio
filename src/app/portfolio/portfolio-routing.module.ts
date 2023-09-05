@@ -9,11 +9,13 @@ import { MiscPageComponent } from './misc-page/misc-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'portfolio', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
   { path: 'experience', component: ExperiencePageComponent },
   { path: 'projects', component: ProjectsPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'misc', component: MiscPageComponent },
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({
