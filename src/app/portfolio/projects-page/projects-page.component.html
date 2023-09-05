@@ -1,6 +1,55 @@
-<h1 class="text-5xl font-bold text-center pt-20">Projects</h1>
-<div class="flex flex-col w-full lg:flex-row p-10">
-  <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div> 
-  <div class="divider lg:divider-horizontal"></div> 
-  <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
+
+<h1 class="text-5xl font-bold text-center pt-20">Projects I've Worked On</h1>
+<p class="px-40 pt-10 text-center">
+  With every project, I've come to gain an appreciation for writing clean, documentable code.<br>
+  Click on a card for project images and more details!
+</p>
+
+<div class="grid grid-cols-3 px-10 py-10 gap-4 mb-16">
+
+  <!-- Create experience cards -->
+  <div *ngFor="let proj of projects; let i=index" class="card glass bg-base-100 shadow-xl">
+    <div class="card-body" (click)="showModalByID(i)">
+      <h1 class="text-lg font-bold">{{ proj.title }}</h1>      
+      <h1 class="text-sm italic">{{ proj.subtitle }}</h1>
+      <ul>
+        {{ proj.desc }}
+      </ul>
+      <br>
+      <div class="flex flex-wrap gap-2">
+        <span *ngFor="let skill of proj.skills" class="badge badge-primary badge-md">{{ skill }}</span>
+      </div> 
+    </div>
+  </div>
+
+  <!-- Modal accompanying each Experience card -->
+  <dialog *ngFor="let proj of projects; let i=index" id="modal_{{i}}" class="modal">
+    <div class="modal-box w-11/12 max-w-5xl">
+      <form method="dialog">
+        <button class="btn btn-lg btn-circle btn-ghost absolute right-2 top-2" (click)="hideModalByID(i)">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </form>
+      <h1 class="font-bold text-lg text-center">
+        {{ proj.title }} 
+        <a *ngIf="proj.projectUrl" role="button" class="btn btn-xs mx-1" href="{{proj.projectUrl}}" target="_blank">
+          View <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </h1>
+      <h1 class="text-sm italic text-center">{{ proj.subtitle }}</h1>
+      <p class="text-sm text-center pt-2">Skills gained/utilized:</p>
+      <div class="flex flex-wrap gap-2 justify-center pt-1">
+        <span *ngFor="let skill of proj.skills" class="badge badge-primary badge-md">{{ skill }}</span>
+      </div> 
+      <div class="py-5 px-12 flex flex-col gap-5">
+          <img *ngIf="proj.imgUrl" src="{{ proj.imgUrl }}" class="w-full h-96 object-scale-down" />
+          <div>
+            {{ proj.modalDesc }}
+          </div>
+      </div>
+      <div class="flex flex-row justify-center">
+        <button class="btn btn-neutral btn-outline"(click)="hideModalByID(i)">Close</button>
+      </div>
+    </div>
+  </dialog>
 </div>
