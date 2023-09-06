@@ -24,21 +24,24 @@ export class ProjectsPageComponent {
     skills: [
       "AngularJS",
       "TypeScript",
+      "Firebase",
+      "RxJS",
       "DaisyUI",
       "TailwindCSS",
       "ParticlesJS",
-      "UI/UX"
+      "UI/UX Design"
     ],
     imgUrl: "",
     projectUrl: "",
-    modalDesc: `This is my first time working with AngularJS and I love how structured it feels! It reminds me of making an Android app. 
-    Currently, I load in the data that you see the old school way. I've stored it inside an array in the component class and loop through it
-    in the template. I am working on storing my data in Firebase.`,
+    modalDesc: `This is my first time working with AngularJS and I love how structured making projects with it feels! 
+    It reminded me of working with views and templates in Django. I use Firestore to store the happy cats count found in the /contact page. I display the
+    happy cats count in real-time. I had fun wrapping my head around RxJS concepts like observables and how it streamlines working with async data. 
+    Also, I had a blast desgining the UI for this website. I hope you liked it!`,
   }
   untube: Project = {
     title: "UnTube: A YouTube Playlist Manager",
     subtitle: "Personal Project",
-    desc: "A simple, comprehensive YouTube playlist manager web app powered by YouTube Data API V3. Built with ❤ using Django, htmx and Bootstrap.",
+    desc: "A YouTube playlist manager web app that makes it easy to manage playlists via bulk operations that are not directly provided by YouTube.",
     skills: [
       "Python",
       "Django",
@@ -47,11 +50,11 @@ export class ProjectsPageComponent {
       "AJAX",
       "YouTube API",
       "Charts.js",
-      "UI/UX"
+      "UI/UX Design"
     ],
     imgUrl: "assets/imgs/UnTube_dashboard.gif",
     projectUrl: "https://github.com/sleepytaco/UnTube",
-    modalDesc: `UnTube utilizes the power of YouTube Data API V3 to help users manage multiple YouTube playlists with ease. UnTube offers a range of features, including the ability to log in with a Google account, bulk delete videos from playlists, address duplicate or unavailable videos, bulk copy/move videos from one playlist to another, and view charts and statistics for playlists. My goal was to create a user-friendly and efficient tool that streamlines the process of managing YouTube playlists. Through building UnTube, I deepened my expertise in web app development, API integration, and user experience design.
+    modalDesc: `I built UnTube to help users manage multiple YouTube playlists with ease. Users can log in with their Google account to import their playlists into UnTube. They can perform operations like: bulk delete videos from playlists, address duplicate or unavailable videos, bulk copy/move videos from one playlist to another, and view charts and statistics for playlists. My goal was to create a user-friendly and efficient tool that streamlines the process of managing YouTube playlists. Through building UnTube, I deepened my expertise in web app development, API integration, and user experience design.
     `,
   }
   christmas3Dscene: Project = {
@@ -67,7 +70,7 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/Brown_CG_Christmas3DScene.png",
     projectUrl: "https://github.com/yuki-mohammed-jazeps/CS1230-Final-Project",
-    modalDesc: `We built a chirstmas themed scene for our final project. Our team implemented the following features:
+    modalDesc: `Our team built a chirstmas themed scene for our computer graphics final project. Our team implemented the following features:
     Parallax Mapping (Jazeps Medina Tretmanis),
     Shadow Mapping (Mohammed Khan),
     Particle Effects (Yuki Hayashita)
@@ -86,8 +89,7 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/CS1470_TextureSynthCNN_POSTER.png",
     projectUrl: "https://github.com/sleepytaco/TextureSynthesisCNN",
-    modalDesc: `A CNN based approach to generate variations of a texture exemplar by iteratively sampling patches from an example
-      image. We implement "Texture Synthesis Through Convolutional Neural Networks and Spectrum Constraints" paper by Liu et. al. The task of image synthesis as approached in this paper is a constrained optimization problem.`,
+    modalDesc: `The goal behind the Texture Synthesis model is to generate a variation of a texture input by iteratively sampling patterns from it. In each iteration, the model tries to ensure the generated texture image and the provided texture image are closely correlated. I helped build the model using PyTorch. Setting up the model involved running two instances of a custom VGG19 model in conjunction while keeping track of the feature outputs produced at each layer. Then, these feature outputs are used to calculate the loss and eventually generate a texture output.`,
   }
   cppRaytracer: Project = {
     title: "C++ Raytracer",
@@ -100,7 +102,10 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/Brown_CG_Raytracer.png",
     projectUrl: "",
-    modalDesc: `Implemented the.`,
+    modalDesc: `Working with C++ always forces me to think in a very object-oriented way. The raytracing algorithm involves setting up objects for the camera, scene, rays, and image textures. 
+    A scene consists of implicitly defined shapes/objects with unique properties describing their material. Then, for every pixel in the resulting rendered image, the algorithm "shoots" a ray 
+    through that pixel into the scene and checks for ray-object intersections. If there is an intersection, an RGB color value is calculated using the Phong illumination model. More realistic
+     renderings were made by adding support for shadows and reflections by recursively tracing a ray into the scene from every object the ray intersects.`,
   }
   bleachedCoralCNN: Project = {
     title: "Dolphin Fins Siamese Network & Bleached Coral Classifier",
@@ -116,7 +121,7 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/Brown_CV_FinalProjPoster.png",
     projectUrl: "",
-    modalDesc: ``,
+    modalDesc: `The first problem we tried to solve was a multi-class classification problem that involved identifying dolphins by their fins. It turns out that you can uniquely identify a dolphin by tracing its fin - just as you can uniquely identify a human by their thumbprint. One of our teammates had access to an image dataset of dolphin fin images each with their unique identifiers. I helped pre-process the dataset by filtering unwanted images, converting it into a TensorFlow dataset, splitting the dataset into learning, test, and cross-validation sets, and finally doing some data normalization + augmentation before passing it to our models. We experimented with a CNN model and a Siamese Network with various hyperparameters. Our main bottleneck was that our dataset only had about 1,500 usable dolphin fin images. Hence, our model consistently overfitted our dataset and underperformed on the validation set. <br><br> Next, we moved on to a different data set, this time a Coral image dataset from Kaggle. Our task with this new dataset was to classify if a coral was bleached or not. We were able to set up a CNN model that made a classification with 70% accuracy. Our team further experimented with various other ML algorithms like SVMs, random forests, KNNs, and logistic regression to try and fit the Corals dataset and compare their performances.`,
   };
   cameraProjAndTriang: Project = {
     title: "Camera Projection & Triangulation in MATLAB",
@@ -139,11 +144,12 @@ export class ProjectsPageComponent {
       "Python",
       "Django",
       "HTMX.js",
-      "SQLite"
+      "SQLite",
+      "UI/UX Design"
     ],
     imgUrl: "assets/imgs/AniQuote_walkthrough.gif",
     projectUrl: "https://github.com/sleepytaco/AniQuote",
-    modalDesc: `A quick web app to retreive and display random quotes from Animechan API. Stored retreived quotes in an SQLite database and kept tally of the number
+    modalDesc: `A web app to retreive and display random quotes from Animechan API. Stored retrieved quotes in an SQLite database and kept tally of the number
     of times that quote has been seen and liked. A list of top 3 most liked quotes is displayed at the bottom.`,
   };
   xkcdTextMode: Project = {
@@ -158,7 +164,8 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/XKCD_walkthrough.gif",
     projectUrl: "https://github.com/sleepytaco/XKCDTextMode",
-    modalDesc: `This is a XKCD comic viewer that uses the XKCD API to retrieve and view a comic's transcript and image. Uses Parse as a backend to store the users progress.`,
+    modalDesc: `This is a XKCD comic viewer that uses the XKCD API to retrieve and view a comic's transcript and image. 
+    Uses Parse as a backend to store the user's favorite comics and to track the number of unique comics they open.`,
   };
   imageManager: Project = {
     title: "Image Manager GUI",
@@ -191,7 +198,7 @@ export class ProjectsPageComponent {
     ],
     imgUrl: "assets/imgs/QuickGifApp.gif",
     projectUrl: "https://github.com/sleepytaco/QuickGIF",
-    modalDesc: `A simple web app made with Django that can create sharable GIFs. Utilizes the Pillow library to create the gifs. Implemented the client side with Bootstrap4 and made jQuery AJAX calls to retrieve generated GIF links from the server.
+    modalDesc: `A simple web app made with Django that can create sharable GIFs. Utilizes the Pillow library to create the gifs. Created gifs are stored with a unique identifier which is used to create a sharable link. Implemented the client side with Bootstrap4 and made jQuery AJAX calls to retrieve generated GIF links from the server.
     `,
   };
   mangaDownloader: Project = {
@@ -225,7 +232,7 @@ export class ProjectsPageComponent {
     this.quickGif,
     this.aniQuote,
     this.imageManager,
-    this.mangaDownloader,
+    // this.mangaDownloader,
   ];
 
   showModalByID(id: number) {
