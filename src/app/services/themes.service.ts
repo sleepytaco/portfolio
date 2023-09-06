@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ThemesService {
 
-  themes: string[] = [];
-  currThemeIndex: number = 0;
+  themes: string[];
+  currThemeIndex: number;
 
   constructor() { 
-    this.themes = ['retro', 'cyberpunk', 'garden', 'wireframe', 'synthwave', 'pastel'];
+    this.themes = ['retro', 'synthwave','pastel', 'halloween', 'cyberpunk', 'luxury', 'garden', 'dracula'];
     
     // get cached theme index if any
     let themeIndex = Number(localStorage.getItem('themeIndex'));

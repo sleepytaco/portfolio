@@ -3,12 +3,14 @@ module.exports = {
     plugins: [require('daisyui')],
     daisyui: {
         themes: [
-          "retro",
-          "cyberpunk",
-          "wireframe",
-          "pastel",
-          "synthwave",
-          "garden"
+          'retro', 
+          'synthwave',
+          'pastel', 
+          'halloween', 
+          'cyberpunk', 
+          'luxury', 
+          'garden', 
+          'dracula'
         ],
       },
   };
