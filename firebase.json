@@ -1,0 +1,9 @@
+{
+    "hosting": [
+      {
+        "target": "im-mohammedk",
+        "source": ".",
+        "frameworksBackend": {}
+      }
+    ]
+  }

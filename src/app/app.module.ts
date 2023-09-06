@@ -9,10 +9,10 @@ import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
 
 
 // import firebase services to use
-// import { environment } from '../environments/environment'; 
-// import { initializeApp,provideFirebaseApp } from '@angular/fire/app'; // used to initialize firebase with our creds
-// import { provideFirestore,getFirestore } from '@angular/fire/firestore';  // use as backend database
-// import { provideAuth,getAuth } from '@angular/fire/auth'; // to manage users
+import { environment } from '../environments/environment'; 
+// import { provideAuth,getAuth } from '@angular/fire/auth'; // to manage user auth
+import { AngularFireModule } from '@angular/fire/compat'; // used to initialize firebase with our creds
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';  // use as backend database
 
 
 @NgModule({
@@ -25,9 +25,8 @@ import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
     AppRoutingModule,
     SharedModule,
     PortfolioModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    // provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [
   ],

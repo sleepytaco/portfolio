@@ -32,6 +32,12 @@
           "configurations": {
             "production": {
               "baseHref": "/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -105,6 +111,13 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "deploy2Firebase": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "portfolio:build:production"
+          }
         }
       }
     }
