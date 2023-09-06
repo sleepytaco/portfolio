@@ -9,6 +9,7 @@ import { ProjectsPageComponent } from './projects-page/projects-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MiscPageComponent } from './misc-page/misc-page.component';
 
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MiscPageComponent } from './misc-page/misc-page.component';
     MiscPageComponent,],
   imports: [
     CommonModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
+    ReactiveFormsModule
   ],
 })
 export class PortfolioModule { }
