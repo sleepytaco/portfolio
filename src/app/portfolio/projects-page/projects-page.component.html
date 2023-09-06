@@ -1,13 +1,15 @@
 
 <h1 class="text-5xl font-bold text-center pt-20">Projects I've Worked On</h1>
-<p class="px-40 pt-10 text-center">
-  With every project, I've come to gain an appreciation for writing clean, documentable code.<br>
-  Click on a card for project images and more details!
+<p class="px-40 pt-10">
+  With every project, I've come to gain an appreciation for writing clean, documentable code. I love spending time designing pleasing and intuitive UIs for my projects. 
+  I have a lot of backend web development experience and very recently picked up reactive frontend JS frameworks. Apart from web development, I gained quite a bit of 
+  experience building Machine Learning projects over the past year. I'm well versed with the entire ML project life cycle - from data pre-processing to setting up models 
+  to training and evaluating models - in TensorFlow and PyTorch. Click on a card for project images and more details!
 </p>
 
 <div class="grid grid-cols-3 px-10 py-10 gap-4 mb-16">
 
-  <!-- Create experience cards -->
+  <!-- Create project cards -->
   <div *ngFor="let proj of projects; let i=index" class="card glass bg-base-100 shadow-xl">
     <div class="card-body" (click)="showModalByID(i)">
       <h1 class="text-lg font-bold">{{ proj.title }}</h1>      
@@ -22,7 +24,7 @@
     </div>
   </div>
 
-  <!-- Modal accompanying each Experience card -->
+  <!-- Modal accompanying each Project card -->
   <dialog *ngFor="let proj of projects; let i=index" id="modal_{{i}}" class="modal">
     <div class="modal-box w-11/12 max-w-5xl">
       <form method="dialog">
