@@ -3,6 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,  // added due to @angular/fire raising error
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
