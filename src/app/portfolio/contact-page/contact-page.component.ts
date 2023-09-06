@@ -13,6 +13,7 @@ export class ContactPageComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   loading: boolean = false;
+  formSubmitResponseOK: boolean | null = null;
 
   likeBtnClicked: boolean = false;
   likesSub: Subscription;
@@ -61,6 +62,30 @@ export class ContactPageComponent implements OnInit, OnDestroy {
     const email = this.email?.value;
     const desc = this.desc?.value;
 
-    this.loading = false;
+    fetch('https://formspree.io/f/myyqjlkq', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "name": name, "email": email, "description": desc })
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        if (response.ok) {
+          this.formSubmitResponseOK = true;
+          this.form.reset();
+        } else {
+          this.formSubmitResponseOK = false;
+        }
+      })
+
+      setTimeout(() => {
+        this.formSubmitResponseOK = null;
+      }, 4000); 
+
+      this.loading = false;
+
   }
 }
