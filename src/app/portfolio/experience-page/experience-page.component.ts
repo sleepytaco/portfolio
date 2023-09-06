@@ -39,10 +39,12 @@ export class ExperiencePageComponent {
     {
       "ongoing": false,
       "title": "Django Backend Developer",
-      "company": "Codeucate.org",
+      "company": "WeCodeucate.org",
       "duration": "Aug 2021 - Aug 2023",
       "desc": [
-        "Helped develop and deploy their Django backend on Azure and worked with technologies like SQL and Redis as per the requirements of the Codeucate student portal.",
+        "Codeucate is a fast-paced non-profit that offers computer science courses geared towards the younger generation.",
+        "Helped develop, refactor and document their student portal that uses Django as the backend.",
+        "Deployed the Django backend on Azure and worked with technologies like SQL and Redis as per the requirements of the Codeucate student portal.",
         "Collaborated with front-end developers to integrate user-facing elements with server-side logic, integrated features like instructor onboarding, referral system, certificate generator, and a payments system using the PayPal API."
       ],
       "skills": [
