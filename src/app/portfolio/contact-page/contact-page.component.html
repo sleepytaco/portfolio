@@ -6,8 +6,75 @@
 
 <h1 class="text-5xl font-bold text-center pt-20">Say Hi!</h1>
 
-<div class="flex flex-col w-full lg:flex-row p-10">
-    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">A contact form</div> 
-    <div class="divider lg:divider-horizontal"></div> 
-    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
+<div class="flex flex-col w-full lg:flex-row p-16 gap-3  mb-16">
+    <div class="grid flex-grow h-auto card rounded-box place-items-center">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-control w-full max-w-3xl">
+            <div class="grid grid-cols-2 gap-3">
+                     
+                <div>
+                    <div>
+                        <label class="label">
+                            <span class="label-text">Ask me anything!</span>
+                        </label>
+                        <textarea formControlName="desc" class="textarea textarea-bordered textarea-info h-52 w-full" 
+                        placeholder="Add in your email and I'll reply! (I promise)"></textarea>
+                        <label  *ngIf="desc!.invalid && desc!.dirty" class="label">
+                            <span class="label-text-alt text-red-400">Keep writing...</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <label class="label">
+                            <span class="label-text">What is your name?</span>
+                        </label>
+                        <input formControlName="name" type="text" placeholder="Rick Astley" class="input input-bordered input-info w-full max-w-xs" />
+                        <label *ngIf="name!.invalid && name!.dirty" class="label">
+                            <span class="label-text-alt text-red-400">I'd like to know your name! 🥹</span>
+                        </label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="label">
+                            <span class="label-text">What is your email?</span>
+                        </label>
+                        <input formControlName="email" type="email" placeholder="never-gonna@give-you-up.edu" class="input input-bordered w-full max-w-xs" />
+                        <label  *ngIf="email!.invalid && email!.dirty" class="label">
+                            <span class="label-text-alt text-red-400">Enter a valid email! 🤠</span>
+                        </label>
+                    </div>
+                    <div class="flex justify-center py-5">
+                        <button *ngIf="!loading" class="btn btn-active btn-accent" type="submit" 
+                        [disabled]="form.invalid || loading">Send 🕺✨</button>
+                        <span *ngIf="loading" class="loading loading-infinity loading-lg"></span>
+                    </div>
+                </div>
+           
+            </div>
+     
+        </form>
+    </div> 
+    
+    <div class="divider lg:divider-horizontal">OR</div> 
+    <div class="card place-content-center p-10 gap-3 ">
+        <p class="text-center">Let me know you were here by making this cat happy</p>
+        <label class="swap swap-flip text-5xl text-red-700" #likeBtn>
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" (click)="likesService.toggleLikeBtnClick()" />
+            
+            <div *ngIf="!likesService.likeBtnClicked">
+                <div class="swap-on">😺</div>
+                <div class="swap-off">😿</div>
+            </div>
+            <div *ngIf="likesService.likeBtnClicked">
+                <div class="swap-on">😿</div>
+                <div class="swap-off">😺</div>
+            </div>
+            
+        </label>
+        <p  class="text-center">
+            {{ currLikes }} cats made happy so far
+        </p>
+    </div> 
+   
 </div>
