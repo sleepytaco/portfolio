@@ -6,52 +6,9 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
 </head>
 <body>
   <base href="/">
   <app-root></app-root>
-
-  <!-- script to blast confetti when F is pressed -->
-  <script type="text/javascript">
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    document.onkeypress = function (e) {
-        e = e || window.event;
-        console.log(e.keyCode);
-        // use F and f
-        if (e.keyCode == 70 || e.keyCode == 102 ) {
-          const duration = 7 * 1000,
-            animationEnd = Date.now() + duration,
-            defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-          const interval = setInterval(function() {
-            const timeLeft = animationEnd - Date.now();
-
-            if (timeLeft <= 0) {
-              return clearInterval(interval);
-            }
-
-            const particleCount = 50 * (timeLeft / duration);
-
-            // since particles fall down, start a bit higher than random
-            confetti(
-              Object.assign({}, defaults, {
-                particleCount,
-                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-              })
-            );
-            confetti(
-              Object.assign({}, defaults, {
-                particleCount,
-                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-              })
-            );
-          }, 250);
-        }
-    };
-  </script>
 </body>
 </html>
