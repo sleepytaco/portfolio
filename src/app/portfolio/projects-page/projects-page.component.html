@@ -1,8 +1,13 @@
 
 <h1 class="text-5xl font-bold text-center pt-20">Projects I've Worked On</h1>
-<p class="px-40 pt-10">
-  With every project, I've come to gain an appreciation for writing clean, documentable code. I love spending time designing pleasing and intuitive UIs for my projects. I am familiar with backend web development and have recently picked up reactive frontend JS frameworks. Apart from web development, I gained experience building Machine Learning projects over the past year. I'm well versed with the entire ML project life cycle - from data pre-processing to setting up models to training and evaluating models - in TensorFlow and PyTorch. Click on a card for project images and more details!
-</p>
+<div class="px-40 pt-10">
+  <ul>
+    <li>• With every project, I've come to gain an appreciation for writing clean, documentable code. I love spending time designing pleasing and intuitive UIs for my projects. </li>
+    <li>• I am familiar with backend web development and have recently picked up reactive frontend JS frameworks.</li>
+    <li>• Apart from web development, I gained experience building Machine Learning projects over the past year. I'm well versed with the entire ML project life cycle - from data pre-processing to setting up models to training and evaluating models - in TensorFlow and PyTorch.</li>
+  </ul>
+  <p class="text-center py-3">Click on a card for project images and more details!</p>
+</div>
 
 <div class="grid grid-cols-3 px-10 py-10 gap-4 mb-16">
 
@@ -32,7 +37,7 @@
       <h1 class="font-bold text-lg text-center">
         {{ proj.title }} 
         <a *ngIf="proj.projectUrl" role="button" class="btn btn-xs mx-1" href="{{proj.projectUrl}}" target="_blank">
-          View <i class="bi bi-box-arrow-up-right"></i>
+          View Code<i class="bi bi-box-arrow-up-right"></i>
         </a>
       </h1>
       <h1 class="text-sm italic text-center">{{ proj.subtitle }}</h1>

@@ -32,11 +32,12 @@ export class ProjectsPageComponent {
       "UI/UX Design"
     ],
     imgUrl: "",
-    projectUrl: "",
-    modalDesc: `This is my first time working with AngularJS and I love how structured making projects with it feels! 
-    It reminded me of working with views and templates in Django. I use Firestore to store the happy cats count found in the /contact page. I display the
-    happy cats count in real-time. I had fun wrapping my head around RxJS concepts like observables and how it streamlines working with async data. 
-    Also, I had a blast desgining the UI for this website. I hope you liked it!`,
+    projectUrl: "https://github.com/sleepytaco/sleepytaco.github.io",
+    modalDesc: `This project is my first time working with a reactive front-end framework. 
+    I love how structured making projects with AngularJS feels! It reminded me of working with views and templates in Django.
+     I have a live counter on this site (see the contact page) that is stored as a document in Firestore.
+      I display the counter value in real time using RxJS. I had fun working with RxJS and wrapping my head around concepts like observables and pipes that help streamline working with async data.
+       Also, I had a blast designing the UI using DiasyUI. I love to make pleasing and intuitive UIs.`,
   }
   untube: Project = {
     title: "UnTube: A YouTube Playlist Manager",
