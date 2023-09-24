@@ -4,17 +4,22 @@
    great enthusiasm for working collaboratively with team members, communicating effectively, and remaining focused on delivering 
    high-quality results. I am constantly seeking ways to improve both my technical and interpersonal skills.</p>
 
+<div *ngIf="dbs.experiences.length == 0" class="flex items-center justify-center p-20">
+  <span class="loading loading-spinner text-accent mr-5"></span>
+  Loading experiences data from Firestore...
+</div>
+
 <div class="grid grid-cols-2 px-10 py-10 gap-4 mb-16">
-  <div *ngFor="let exp of experiences" class="card glass bg-base-100 shadow-xl">
+  <div *ngFor="let exp of dbs.experiences" class="card glass bg-base-100 shadow-xl">
     <div class="card-body">
       <span *ngIf="exp.ongoing" class="indicator-item indicator-center badge badge-success">Current</span> 
       <h1 class="text-lg font-bold">{{ exp.title }}</h1>      
       <h1 class="text-">{{ exp.company }}</h1>
       <h1 class="text-sm italic">{{ exp.duration }}</h1>
-      <ul>
-        <li *ngFor="let bullet of exp.desc">
+      <ul [innerHTML]="exp.desc">
+        <!-- <li *ngFor="let bullet of exp.desc">
           • {{bullet}}
-        </li>
+        </li> -->
       </ul>
       <br>
       <div class="flex flex-wrap gap-2">
