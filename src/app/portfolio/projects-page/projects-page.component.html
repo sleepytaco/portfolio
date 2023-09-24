@@ -2,17 +2,25 @@
 <h1 class="text-5xl font-bold text-center pt-20">Projects I've Worked On</h1>
 <div class="px-40 pt-10">
   <ul>
-    <li>• With every project, I've come to gain an appreciation for writing clean, documentable code. I love spending time designing pleasing and intuitive UIs for my projects. </li>
-    <li>• I am familiar with backend web development and have recently picked up reactive frontend JS frameworks.</li>
+    <li>• With every project, I've come to gain an appreciation for writing clean, documentable code. 
+      I love spending time designing pleasing and intuitive UIs for my projects. I am familiar with backend web development and have recently picked up reactive frontend JS frameworks.</li>
     <li>• Apart from web development, I gained experience building Machine Learning projects over the past year. I'm well versed with the entire ML project life cycle - from data pre-processing to setting up models to training and evaluating models - in TensorFlow and PyTorch.</li>
   </ul>
+  <!-- <div class="flex flex-wrap gap-2">
+    <span *ngFor="let skill of dbs.skills" class="badge badge-primary badge-md">{{ skill }}</span>
+  </div>  -->
   <p class="text-center py-3">Click on a card for project images and more details!</p>
 </div>
 
-<div class="grid grid-cols-3 px-10 py-10 gap-4 mb-16">
+<div  *ngIf="dbs.projects.length == 0" class="flex items-center justify-center p-20">
+  <span class="loading loading-spinner text-accent mr-5"></span>
+  Loading projects data from Firestore...
+</div>
 
+<div class="grid grid-cols-3 px-10 py-10 gap-4 mb-16">
+  
   <!-- Create project cards -->
-  <div *ngFor="let proj of projects; let i=index" class="card glass bg-base-100 shadow-xl">
+  <div *ngFor="let proj of dbs.projects; let i=index" class="card glass bg-base-100 shadow-xl">
     <div class="card-body" (click)="showModalByID(i)">
       <h1 class="text-lg font-bold">{{ proj.title }}</h1>      
       <h1 class="text-sm italic">{{ proj.subtitle }}</h1>
@@ -27,7 +35,7 @@
   </div>
 
   <!-- Modal accompanying each Project card -->
-  <dialog *ngFor="let proj of projects; let i=index" id="modal_{{i}}" class="modal">
+  <dialog *ngFor="let proj of dbs.projects; let i=index" id="modal_{{i}}" class="modal">
     <div class="modal-box w-11/12 max-w-5xl">
       <form method="dialog">
         <button class="btn btn-lg btn-circle btn-ghost absolute right-2 top-2" (click)="hideModalByID(i)">
